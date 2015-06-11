@@ -1,6 +1,16 @@
 # coldSummer
 test application
 
-install dependencies:
+##install dependencies:
 
-npm install
+```bash
+$ npm install 
+```
+
+##Usage:
+```bash
+$ cd <repodir>
+$ npm start 
+```
+go to:
+http://localhost:3000
