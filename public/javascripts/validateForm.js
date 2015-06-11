@@ -68,7 +68,7 @@ function verifyAge(age, callback) {
   var date =  Math.floor(new Date(age) / 1000);
   var diff = Math.abs((Math.floor(Date.now() / 1000)) - date);
 
-  if (unixEighteen > diff) {
+  if (unixEighteen > diff || isNaN(date)) {
     ageVerificationError = 'Sorry, you must be at least 18 years old to register for this event';
     return callback(ageVerificationError);
   }
