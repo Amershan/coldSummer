@@ -11,14 +11,20 @@ router.post('/', function(req, res) {
 });
 
 var checkDataValidity = function (data, cb) {
-  console.log(data);
+
   var responseObj ={};
   var nameRegex  = /^[a-zA-Z ]{3,60}$/;
   var emailregex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   var eighteenUnx = 567993600;
   var diff = Math.abs((Math.floor(Date.now() / 1000)) - Math.floor(new Date(data.age) / 1000));
 
-  if(!data.name || !data.email || !data.age || !nameRegex.test(data.name) || !emailregex.test(data.email) || eighteenUnx > diff) {
+  if(!data.name
+    || !data.email
+    || !data.age
+    || !nameRegex.test(data.name)
+    || !emailregex.test(data.email)
+    || eighteenUnx > diff
+    || isNaN(diff)) {
 
     responseObj = {
       code: 401,
