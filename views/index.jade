@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h1= title
+  p Welcome to #{title}
+  p
+  form(action='/register',method='post' onsubmit="return validateForm()", name="registerForm")
+      fieldset(data-role='controlgroup')
+        label(for='name') Name:
+          p
+          div(id='nameError')
+          input(id='name',type='text',placeholder='Enter your name',name='name', required)
+      fieldset(data-role='controlgroup')
+        label(for='email') E-mail:
+          p
+          div(id='emailError')
+          input(id='email',type='text',value='',placeholder='@',name='email', required)
+      fieldset(data-role='controlgroup')
+        label(for='age') Occupation:
+          p
+          input(id='occupation',type='text',name='occupation')
+      fieldset(data-role='controlgroup')
+        label(for='age') Age:
+          p
+          div(id='ageVerificationError')
+          input(id='age',type='text',name='age')
+      input(type='submit',value='Sign Up',data-transition='fade', data-theme='c')
